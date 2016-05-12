@@ -72,6 +72,10 @@ $(document).ready(function(){
 
 			} // ends for loop
 
+			//puts blank spaces on the board
+
+			$(".moveSpace").append("<img src='assets/images/blank.png'>");
+
 		}, // ends genPieces method
 
 		// method for targeting a piece
@@ -84,7 +88,6 @@ $(document).ready(function(){
 					$(".target").removeClass("target");
 					$(this).addClass("target");
 					game.click++;
-					console.log(game.click);
 				} // end if
 
 			}); // end on click for .piece
@@ -97,10 +100,11 @@ $(document).ready(function(){
 			$(document.body).on('click', '.moveSpace', function() {
 
 				if (game.click == 1) {
+					$(this).html("");
 					$('.target').appendTo(this);
-					console.log(this);
 					game.click = 0;
-					console.log(game.click);
+					$('.target').removeClass('piece');
+					$('.target').addClass("onBoard");
 				} // end if
 
 			}); // end on click for .moveSpace
