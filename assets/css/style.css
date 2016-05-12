@@ -10,6 +10,12 @@ h1 {
 	margin: 15px;
 }
 
+h2 {
+	font-family: 'Droid Serif', serif;
+	font-size: 30px;
+	margin: 15px;
+}
+
 /* Spaces on the board */
 
 .row .col-sm-1 {

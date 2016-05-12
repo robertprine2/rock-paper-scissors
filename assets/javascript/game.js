@@ -100,8 +100,10 @@ $(document).ready(function(){
 			$(document.body).on('click', '.moveSpace', function() {
 
 				if (game.click == 1) {
-					$(this).html("");
+					$(this).empty();
 					$('.target').appendTo(this);
+					// var index = $('.target').data('index');
+					// $(this).replaceWith(game.pieces[index]);
 					game.click = 0;
 					$('.target').removeClass('piece');
 					$('.target').addClass("onBoard");
