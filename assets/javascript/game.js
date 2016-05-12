@@ -76,28 +76,36 @@ $(document).ready(function(){
 
 		// method for targeting a piece
 
-		movePiece: function() {
+		targetPiece: function() {
 
 			$(document.body).on('click', '.piece', function(){
-
-				// Target a piece
 
 				if (game.click == 0) {
 					$(".target").removeClass("target");
 					$(this).addClass("target");
 					game.click++;
 					console.log(game.click);
-				}
+				} // end if
 
-				// Move the targeted piece
+			}); // end on click for .piece
 
-				else {
+		}, // end targetPiece method
+
+
+
+		movePiece: function() {
+			$(document.body).on('click', '.moveSpace', function() {
+
+				if (game.click == 1) {
+					$('.target').appendTo(this);
+					console.log(this);
 					game.click = 0;
 					console.log(game.click);
-				}
+				} // end if
 
-			});
-		},
+			}); // end on click for .moveSpace
+
+		}, // end movePiece method
 
 	} // Ends game object
 
@@ -106,6 +114,10 @@ $(document).ready(function(){
 	game.genPieces();
 
 	// on click for targeting a piece to move
+
+	game.targetPiece();
+
+	// on click for moving a piece
 
 	game.movePiece();
 
