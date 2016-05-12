@@ -51,6 +51,10 @@ $(document).ready(function(){
 			image: "<img src='assets/images/flag.png'>"},
 			],
 
+		// variable click is for targeting or placing a piece, 0 to target 1 to appendTo
+
+		click: 0,
+
 		// method to generate pieces for placement on the board
 
 		genPieces: function() {
@@ -58,7 +62,7 @@ $(document).ready(function(){
 			for (var i = 0; i < game.pieces.length; i++) {
 
 				var p = $('<button>');
-				p.addClass("piece ");
+				p.addClass("piece");
 				p.attr('data-index', i);
 				p.attr('data-name', game.pieces[i].name);
 				p.append('<p>' + game.pieces[i].name + '</p>');
@@ -70,8 +74,39 @@ $(document).ready(function(){
 
 		}, // ends genPieces method
 
+		// method for targeting a piece
+
+		movePiece: function() {
+
+			$(document.body).on('click', '.piece', function(){
+
+				// Target a piece
+
+				if (game.click == 0) {
+					$(".target").removeClass("target");
+					$(this).addClass("target");
+					game.click++;
+					console.log(game.click);
+				}
+
+				// Move the targeted piece
+
+				else {
+					game.click = 0;
+					console.log(game.click);
+				}
+
+			});
+		},
+
 	} // Ends game object
 
+	// generates pieces on website
+
 	game.genPieces();
+
+	// on click for targeting a piece to move
+
+	game.movePiece();
 
 }); // Ends document.ready function

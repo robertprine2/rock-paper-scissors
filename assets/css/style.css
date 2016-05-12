@@ -30,6 +30,10 @@ button img {
 	width: 100%;
 }
 
+.target img {
+	border: solid 2px red;
+}
+
 /* Social Icons */
 
 .socIcon {
